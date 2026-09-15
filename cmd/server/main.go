@@ -4,10 +4,13 @@ import (
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/kvitonity/go-calc-service/internal/handler"
 )
 
 func main() {
 	mux := http.NewServeMux()
+	mux.HandleFunc("/expression", handler.ExpressionHandler)
 
 	server := &http.Server{
 		Addr:         ":8080",
